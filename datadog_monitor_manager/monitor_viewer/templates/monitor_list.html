@@ -1,0 +1,10 @@
+<html>
+    <head>
+        <title>Monitor一覧</title>
+    </head>
+    <body>
+        {% for monitor in monitors%}
+            {{monitor.id}}, {{ monitor.name }}<br/>
+        {% endfor %}
+    </body>
+</html>
