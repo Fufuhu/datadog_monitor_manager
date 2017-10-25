@@ -11,3 +11,6 @@ class DatadogClient():
     
     def get_monitors(self):
         return api.Monitor.get_all()  
+
+    def get_monitor(self, monitor_id):
+        return api.Monitor.get(id=monitor_id)
