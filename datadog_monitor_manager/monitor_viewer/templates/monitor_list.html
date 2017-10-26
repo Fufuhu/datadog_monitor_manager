@@ -1,8 +1,6 @@
-<html>
-    <head>
-        <title>Monitor一覧</title>
-    </head>
-    <body>
+{% extends "base.html" %}
+{% block title %} モニター一覧 {% endblock title %}
+{% block content %}
         <table style="border: solid 1px">
             <tr>
             <th style="border: solid 1px">Monitor ID</th>
@@ -15,5 +13,4 @@
             </tr>
         {% endfor %}
         </table>
-    </body>
-</html>
+{% endblock content %}
