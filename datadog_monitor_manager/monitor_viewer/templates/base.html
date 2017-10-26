@@ -4,9 +4,19 @@
         {% block extrahead %} {% endblock %}
     </head>
     <body>
-        <div class="container">
+        <div style="border-style: solid; border-color:gray; border-width: 2px; background-color:gray;" class="header">
+            <h1>Datadog monitor manager</h1>
+        </div>
+            <ul style="display: table; background-color: gray; width: 100%">
+                <li style="display: table-cell; text-align: center; vertical-align: middle; border-left: 1px solid; background-color: white;">ほげほげ</li>
+                <li style="display: table-cell; text-align: center; vertical-align: middle; border-left: 1px solid; background-color: white;">ほげほげ</li>
+            </ul>
+        <div style="border-style: solid; border-color:gray; border-width: 2px;" class="container">
             {% block content %}
             {% endblock %}
+        </div>
+        <div style="border-style: solid; border-color:gray; border-width: 2px; background-color:gray;" class="footer">
+            フッターだよ〜
         </div>
     </body>
 
