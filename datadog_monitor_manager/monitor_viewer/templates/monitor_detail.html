@@ -4,16 +4,16 @@
     </head>
     <body>
         <h1>{{ monitor.name }}</h1>
-        <form action={% url 'monitor_viewer:monitor_list' %} methid="post">
+        <form action={% url 'monitor_viewer:monitor_save' %} method="post">
+            {% csrf_token %}
             <label for="msg">修正後</label><br/>
             <textarea name="msg" cols="80" rows="40">{{ text }}</textarea><br/>
-            <input type="submit" value="送信">
+            <input type="submit" value="適用">
         </form>
-        <form style="color:gray; position:absolute; top:5em; right:0em;">
+        <form style="color:gray;">
             <label for="before_modify">修正前</label><br/>
             <textarea name="before_modify" readonly="true" cols="80" rows="40">{{ text }}</textarea><br/>
         </form>
-        <br/>
         <a href="{% url 'monitor_viewer:monitor_list' %}">一覧に戻る</a>
     </body>
 </html>

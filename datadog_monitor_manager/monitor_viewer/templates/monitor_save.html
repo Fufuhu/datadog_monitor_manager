@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>{{ monitor.name }}</title>
+    </head>
+    <body>
+        以下の通り、変更を適用しようとしていますよろしいですか？<br/>
+        <h1>{{ monitor.name }}</h1>
+        <form action={% url 'monitor_viewer:monitor_list' %} method="post">
+            {% csrf_token %}
+            <textarea name="msg" cols="80" rows="40" readonly=true>{{ monitor.text }}</textarea><br/>
+            <input type="submit" value="確認">
+        </form>
+        <a href="{% url 'monitor_viewer:monitor_list' %}">一覧に戻る</a>
+    </body>
+</html>
