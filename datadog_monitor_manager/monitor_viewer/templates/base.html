@@ -4,18 +4,19 @@
         {% block extrahead %} {% endblock %}
     </head>
     <body>
-        <div style="border-style: solid; border-color:gray; border-width: 2px; background-color:gray;" class="header">
-            <h1>Datadog monitor manager</h1>
+        <div class="header" style="border-style: solid; background-color:rgb(32,25,39);" class="header">
+            <h1 style="color:rgb(226, 225, 227)">Datadog monitor manager</h1>
+            <div class="menu" style="width: 100%">
+                <div style="display:inline;color:rgb(226, 225, 227); vertical-align: middle; text-align:center;"><a href="{% url 'monitor_viewer:monitor_list' %}">モニタ一覧</a></div>
+                <div style="display:inline;color:rgb(226, 225, 227); vertical-align: middle; text-align:center;"><a href="{% url 'monitor_viewer:monitor_settings' %}">キー設定</a></div>
+                <div style="display:inline;color:rgb(226, 225, 227); vertical-align: middle; text-align:center;">aaaa</div>
+            </div>
         </div>
-            <ul style="display: table; background-color: gray; width: 100%">
-                <li style="display: table-cell; text-align: center; vertical-align: middle; border: 1px solid; background-color: white;">ほげほげ</li>
-                <li style="display: table-cell; text-align: center; vertical-align: middle; border: 1px solid; background-color: white;">ほげほげ</li>
-            </ul>
         <div style="border-style: solid; border-color:gray; border-width: 2px;" class="container">
             {% block content %}
             {% endblock %}
         </div>
-        <div style="border-style: solid; border-color:gray; border-width: 2px; background-color:gray;" class="footer">
+        <div style="border-style: solid; border-color:rgb(32,25,39); border-width: 2px; background-color:rgb(32,25,39);color:rgb(226, 225, 227);" class="footer">
             フッターだよ〜
         </div>
     </body>
