@@ -4,7 +4,7 @@
     {% block content %}
         <h1>{{ monitor.name }}</h1>
         <div style="width: 100%; display: table;">
-            <form style="display: table-cell;" action={% url 'monitor_viewer:monitor_save' %} method="post">
+            <form style="display: table-cell;" action={% url 'monitor_viewer:monitor_confirm' %} method="post">
                 {% csrf_token %}
                 <label for="msg">修正後</label><br/>
                 <textarea name="msg" cols="80" rows="40">{{ text }}</textarea><br/>

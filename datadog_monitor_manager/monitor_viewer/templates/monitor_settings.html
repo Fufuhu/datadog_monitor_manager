@@ -2,7 +2,8 @@
 {% block title %} モニタリングのキー設定 {% endblock title %}
 {% block content %}
         <h1>キー情報</h1>
-        <form action={% url 'monitor_viewer:monitor_list' %} method="get">
+        <form action={% url 'monitor_viewer:monitor_settings_confirm' %} method="post">
+            {% csrf_token %}
             <label for="api_key">API KEY</label><br/>
             <input type="text" name="api_key" placeholder="Api Key"/><br/>
             <label for="app_key">APP KEY</label><br/>

@@ -5,6 +5,8 @@ import os
 
 def get_list(request):
     # return HttpResponse('リスト')
+    if 'app_key' not in request.session or 'api_key' not in request.session:
+        return render(request, 'monitor_settings.html', {})
     client = DatadogClient(api_key=os.getenv('DD_API_KEY'),app_key=os.getenv('DD_APP_KEY'))
     monitors = client.get_monitors()
 
