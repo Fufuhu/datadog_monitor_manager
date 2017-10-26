@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from monitor_viewer.services.datadog_client import DatadogClient
 
@@ -11,4 +11,5 @@ def save(request):
     client = DatadogClient(api_key=request.session.get('api_key'),app_key=request.session.get('app_key'))
     monitors = client.get_monitors()
 
-    return render(request, 'monitor_list.html', {"monitors": monitors})
+    return redirect('/monitor_viewer/monitor/')
+    # return render(request, 'monitor_list.html', {"monitors": monitors})
