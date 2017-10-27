@@ -1,7 +1,7 @@
 {% extends "base.html" %}
     {% block title %}変更確認{% endblock title %}
     {% block content %}
-        以下の通り、変更を適用しようとしていますよろしいですか？<br/>
+        <p class="text-danger bg-danger lead">以下の通り、変更を適用しようとしていますよろしいですか？<br/></p>
         <h2>{{ monitor.name }}</h2>
         <form class="form-group" action={% url 'monitor_viewer:monitor_update' %} method="post">
             {% csrf_token %}
