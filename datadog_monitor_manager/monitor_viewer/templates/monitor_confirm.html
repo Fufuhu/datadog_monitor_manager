@@ -2,11 +2,10 @@
     {% block title %}変更確認{% endblock title %}
     {% block content %}
         以下の通り、変更を適用しようとしていますよろしいですか？<br/>
-        <h1>{{ monitor.name }}</h1>
-        <form action={% url 'monitor_viewer:monitor_list' %} method="post">
+        <h2>{{ monitor.name }}</h2>
+        <form class="form-group" action={% url 'monitor_viewer:monitor_update' %} method="post">
             {% csrf_token %}
-            <textarea name="msg" cols="80" rows="40" readonly=true>{{ monitor.text }}</textarea><br/>
-            <input type="submit" value="確認">
+            <textarea class="form-control" name="msg" cols="80" rows="40" readonly=true>{{ monitor.text }}</textarea><br/>
+            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>確認</button>
         </form>
-        <a href="{% url 'monitor_viewer:monitor_list' %}">一覧に戻る</a>
     {% endblock content %}

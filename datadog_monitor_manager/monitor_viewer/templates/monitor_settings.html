@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% block title %} モニタリングのキー設定 {% endblock title %}
 {% block content %}
+    <div class="container">
         <h1>キー情報</h1>
-        <form action={% url 'monitor_viewer:monitor_settings_confirm' %} method="post">
+        <form class="form-group" action={% url 'monitor_viewer:monitor_settings_confirm' %} method="post">
             {% csrf_token %}
             <label for="api_key">API KEY</label><br/>
-            <input type="text" name="api_key" placeholder="Api Key"/><br/>
+            <input class="form-control" type="text" name="api_key" placeholder="Api Key"/><br/>
             <label for="app_key">APP KEY</label><br/>
-            <input type="text" name="app_key" placeholder="App Key"/><br/>
-            <input type="submit" value="設定"/>
+            <input class="form-control" type="text" name="app_key" placeholder="App Key"/><br/>
+            <input class="btn btn-default" type="submit" value="設定"/>
         </form>
+    </div>
 {% endblock content %}

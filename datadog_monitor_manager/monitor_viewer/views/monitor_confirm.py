@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from monitor_viewer.services.datadog_client import DatadogClient
 import os
+import json
 
 def confirm(request):
     print(str(request.POST)) 
@@ -9,4 +9,5 @@ def confirm(request):
     print(body.get('msg'))
     monitor = {}
     monitor['text'] = body.get('msg')
+    monitor['name'] = json.loads(body.get('msg')).get('name')
     return render(request, 'monitor_confirm.html',{ "monitor": monitor })

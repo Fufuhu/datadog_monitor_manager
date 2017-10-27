@@ -4,24 +4,31 @@
         {% load static %}
         <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
         <link href="{% static 'css/bootstrap-theme.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/sticky-footer.css' %}" rel="stylesheet">
         <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
         {% block extrahead %} {% endblock %}
     </head>
     <body>
-        <div class="header" style="border-style: solid; background-color:rgb(32,25,39);" class="header">
+        <div style="border-style: solid; background-color:rgb(32,25,39);" class="header">
             <h1 style="color:rgb(226, 225, 227)">Datadog monitor manager</h1>
             <div class="menu" style="width: 100%">
-                <div style="display:inline;color:rgb(226, 225, 227); vertical-align: middle; text-align:center;"><a href="{% url 'monitor_viewer:monitor_list' %}">モニタ一覧</a></div>
-                <div style="display:inline;color:rgb(226, 225, 227); vertical-align: middle; text-align:center;"><a href="{% url 'monitor_viewer:monitor_settings' %}">キー設定</a></div>
-                <div style="display:inline;color:rgb(226, 225, 227); vertical-align: middle; text-align:center;"><a href="{% url 'monitor_viewer:clear_settings' %}">キー情報のクリア</a></div>
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true" style="color:white;">
+                    <div style="display:inline;color:rgb(226, 225, 227); text-align:center;"><a href="{% url 'monitor_viewer:monitor_list' %}">モニタ一覧</a></div>
+                </span>
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:white">
+                    <div style="display:inline;color:rgb(226, 225, 227); text-align:center;"><a href="{% url 'monitor_viewer:monitor_settings' %}">キー設定</a></div>
+                </span>
+                <span class="glyphicon glyphicon-remove" aria-hidden="true" style="color: white">
+                    <div style="display:inline;color:rgb(226, 225, 227); text-align:center;"><a href="{% url 'monitor_viewer:clear_settings' %}">キー情報のクリア</a></div>
+                </span>
             </div>
         </div>
         <div>
             {% block content %}
             {% endblock %}
         </div>
-        <footer style="border-style: solid; border-color:rgb(32,25,39); border-width: 2px; background-color:rgb(32,25,39);color:rgb(226, 225, 227);" class="footer">
+        <footer class="footer" style="border-style: solid; border-color:rgb(32,25,39); border-width: 2px; background-color:rgb(32,25,39);color:rgb(226, 225, 227);" class="footer">
             Datadog monitor manager v0.0.1
         </footer>
     </body>

@@ -2,17 +2,17 @@
     {% block title %} {{ monitor.name }} {%endblock title %}
     </head>
     {% block content %}
-        <h1>{{ monitor.name }}</h1>
-        <div style="width: 100%; display: table;">
+        <h2>{{ monitor.name }}</h2>
+        <div class="form-group" style="width: 100%; display: table;">
             <form style="display: table-cell;" action={% url 'monitor_viewer:monitor_confirm' %} method="post">
                 {% csrf_token %}
-                <label for="msg">修正後</label><br/>
-                <textarea name="msg" cols="80" rows="40">{{ text }}</textarea><br/>
-                <input type="submit" value="適用">
+                <h3><label class="label label-info" for="msg">修正後</label></h3>
+                <textarea class="form-control" name="msg" cols="80" rows="40">{{ text }}</textarea><br/>
+                <button type="submit" value="更新" class="btn btn-default"><span class="glyphicon glyphicon-ok" aria-hidden="true">適用</span></button>
             </form>
-            <div style="display: table-cell; padding-left:2em">
-                    修正前<br/>
-                    <textarea style="color: gray;" name="msg" cols="80" rows="40" readonly="true">{{ text }}</textarea><br/>
-            </div>
+            <form style="display: table-cell; padding-left:2em">
+                <h3><label class="label label-info" for="msg">修正前</label></h3>
+                <textarea class="form-control" style="color: gray;" name="msg" cols="80" rows="40" readonly="true">{{ text }}</textarea><br/>
+            </form>
         </div>
     {% endblock content %}
