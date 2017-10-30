@@ -3,7 +3,6 @@ from django.http import HttpResponse
 import json
 
 def confirm(request):
-    print(str(request.POST)) 
     body = request.POST
     print(body.get('msg'))
     monitor = {}
