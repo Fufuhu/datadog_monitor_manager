@@ -22,3 +22,7 @@ pip install -r requirements.txt
 ```
 pytnon manage.py runserver
 ```
+
+ブラウザで起動後、
+http://localhost:8000/monitor_viewer/monitor/
+にアクセスします。
