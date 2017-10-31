@@ -3,9 +3,23 @@
     {% block content %}
         <p class="text-danger bg-danger lead">以下の通り、変更を適用しようとしていますよろしいですか？<br/></p>
         <h2>{{ monitor.name }}</h2>
+        <table style="border-color:gray; border-style:solid; border-width: 1px;">
+        {% for diff in monitor.diff %} 
+            <tr>
+                <td style="background-color: lightgray;">{{ diff.line_number }}</td>
+                {% if diff.is_add == True %}
+                    <td style="background-color: skyblue;"> {{diff.line|safe}}</td>
+                {% elif diff.is_add == False %}
+                    <td style="background-color: pink;"> {{diff.line|safe}}</td>
+                {% else %}
+                    <td style="background-color: whitesmoke;"> {{diff.line|safe}}</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </table>
         <form class="form-group" action={% url 'monitor_viewer:monitor_update' %} method="post">
             {% csrf_token %}
-            <textarea class="form-control" name="msg" cols="80" rows="40" readonly=true>{{ monitor.text }}</textarea><br/>
+            <textarea class="form-control" name="msg" cols="80" rows="40" readonly=true style="display:none">{{ monitor.text }}</textarea><br/>
             <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>確認</button>
         </form>
     {% endblock content %}
